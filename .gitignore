@@ -1,0 +1,42 @@
+# Environment
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+
+# Virtual environments
+.venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# NAT eval/optimizer outputs
+eval_output*/
+math_tools_eval/
+ragtime_eval/
+eval_with_optimizer/
+workflows/
+
+# IDE
+.mypy_cache/
+.vscode/
+
+# OS
+.DS_Store
+
+# uv
+uv.lock
+
+# Checkpoints
+checkpoints.db
+checkpoints.db-shm
+checkpoints.db-wal
+
+# Misc
+rag_db/
+scripts/
+Makefile

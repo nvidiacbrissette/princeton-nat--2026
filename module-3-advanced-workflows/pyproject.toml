@@ -1,0 +1,17 @@
+[project]
+name = "nat-training-advanced-workflows"
+version = "0.1.0"
+description = "Module 3: Advanced NAT Workflows (RAG & Multi-Framework)"
+requires-python = ">=3.12"
+dependencies = [
+    "nvidia-nat[crewai,langchain,llama-index,phoenix]>=1.4.1",
+    "langgraph>=0.2.76",
+    "langchain-nvidia-ai-endpoints",
+    "llama-index-postprocessor-nvidia-rerank>=0.4.3",
+    "llama-index-vector-stores-faiss>=0.4.0",
+    "faiss-cpu>=1.12.0",
+    "ipykernel",
+    "jupyterlab",
+    "python-dotenv",
+    "colorama",
+]

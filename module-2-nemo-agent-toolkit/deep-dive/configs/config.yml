@@ -1,0 +1,104 @@
+# SPDX-FileCopyrightText: Copyright (c) 2024-2025, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+# SPDX-License-Identifier: Apache-2.0
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+general:
+  telemetry:
+    logging:
+      console:
+        _type: console
+        level: WARN
+
+functions:
+  email_phishing_analyzer:
+    _type: email_phishing_analyzer
+    llm: nim_llm
+  sensitive_info_detector:
+    _type: sensitive_info_detector
+    llm: nim_llm
+  intent_classifier:
+    _type: intent_classifier
+    llm: nim_llm
+  link_and_domain_analyzer:
+    _type: link_and_domain_analyzer
+    min_suspicious_score: 0.5
+  phishing_risk_aggregator:
+    _type: phishing_risk_aggregator
+    explanation_llm: nim_summary_llm
+
+
+llms:
+  nim_llm:
+    _type: nim
+    model_name: meta/llama-3.1-405b-instruct
+    temperature: 0.0
+    max_tokens: 512
+  nim_summary_llm:
+    _type: nim
+    model_name: meta/llama-3.1-70b-instruct
+    temperature: 0.2
+    max_tokens: 512
+  nim_rag_eval_llm:
+    _type: nim
+    model_name: meta/llama-3.1-70b-instruct
+    max_tokens: 8
+  nim_trajectory_eval_llm:
+    _type: nim
+    model_name: meta/llama-3.1-70b-instruct
+    temperature: 0.0
+    max_tokens: 1024
+
+
+workflow:
+  _type: react_agent
+  tool_names:
+    - sensitive_info_detector
+    - intent_classifier
+    - link_and_domain_analyzer
+    - phishing_risk_aggregator
+    - email_phishing_analyzer
+  llm_name: nim_llm
+  verbose: true
+  parse_agent_response_max_retries: 3
+
+eval:
+  general:
+    output_dir: eval_output
+    verbose: true
+    dataset:
+        _type: csv
+        file_path: data/smaller_test.csv
+        id_key: "subject"
+        structure:
+          question_key: body
+          answer_key: label
+
+  evaluators:
+    rag_accuracy:
+      _type: ragas
+      metric: AnswerAccuracy
+      llm_name: nim_rag_eval_llm
+    rag_groundedness:
+      _type: ragas
+      metric: ResponseGroundedness
+      llm_name: nim_rag_eval_llm
+    rag_relevance:
+      _type: ragas
+      metric: ContextRelevance
+      llm_name: nim_rag_eval_llm
+    trajectory_accuracy:
+      _type: trajectory
+      llm_name: nim_trajectory_eval_llm
+    phishing_accuracy:
+      _type: phishing_accuracy

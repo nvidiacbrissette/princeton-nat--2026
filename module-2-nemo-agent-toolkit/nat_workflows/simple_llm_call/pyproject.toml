@@ -1,0 +1,16 @@
+[build-system]
+build-backend = "setuptools.build_meta"
+requires = ["setuptools >= 64", "setuptools-scm>=8"]
+
+[project]
+name = "simple_llm_call"
+dynamic = ["version"]
+dependencies = [
+  "nvidia-nat[langchain]",
+]
+requires-python = ">=3.12"
+description = "Custom NeMo Agent Toolkit Workflow"
+classifiers = ["Programming Language :: Python"]
+
+[project.entry-points.'nat.components']
+simple_llm_call = "simple_llm_call.register"

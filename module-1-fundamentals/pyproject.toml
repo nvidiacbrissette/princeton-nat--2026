@@ -1,0 +1,23 @@
+[project]
+name = "nat-fundamentals"
+version = "0.1.0"
+description = "Module 1: Agent Fundamentals"
+requires-python = ">=3.12"
+dependencies = [
+    "langchain>=0.3.27",
+    "langgraph",
+    "langchain-community",
+    "langchain-text-splitters",
+    "langchain-openai",
+    "langchain-tavily",
+    "langchain-nvidia-ai-endpoints",
+    "fastembed",
+    "faiss-cpu",
+    "wikipedia",
+    "ipykernel",
+    "jupyterlab",
+    "gradio",
+    "python-dotenv",
+    "pydantic",
+    "crewai",
+]
