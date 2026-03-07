@@ -6,7 +6,7 @@ Get started with AI agents — understand the landscape, build your first agent,
 
 - Python 3.12+
 - `uv` package manager
-- NVIDIA API Key set in the root `.env` file
+- NVIDIA API Key and Tavily API Key set in the root `.env` file
 
 ## Notebooks
 

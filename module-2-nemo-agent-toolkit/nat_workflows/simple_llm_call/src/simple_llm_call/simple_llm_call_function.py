@@ -1,7 +1,5 @@
 import logging
 
-from pydantic import Field
-
 from nat.builder.builder import Builder
 from nat.builder.framework_enum import LLMFrameworkEnum
 from nat.builder.function_info import FunctionInfo
