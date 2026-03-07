@@ -8,14 +8,6 @@ Get started with AI agents — understand the landscape, build your first agent,
 - `uv` package manager
 - NVIDIA API Key set in the root `.env` file
 
-## Setup
-
-```bash
-cd module-1-fundamentals
-uv sync
-uv run jupyter lab
-```
-
 ## Notebooks
 
 | Notebook | Description |

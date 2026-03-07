@@ -7,14 +7,6 @@ Build advanced agentic workflows with the NeMo Agent Toolkit, including RAG pipe
 - Complete Module 2 (NeMo Agent Toolkit)
 - NVIDIA API Key set in the root `.env` file
 
-## Setup
-
-```bash
-cd module-3-advanced-workflows
-uv sync
-uv run jupyter lab
-```
-
 ## Notebooks
 
 | Notebook | Description |
