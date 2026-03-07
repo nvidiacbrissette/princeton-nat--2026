@@ -39,4 +39,3 @@ checkpoints.db-wal
 # Misc
 rag_db/
 scripts/
-Makefile

@@ -15,16 +15,20 @@ A hands-on training program for building, evaluating, and optimizing AI agents u
 # 1. Clone the repository
 git clone https://github.com/your-org/nat-training-assets.git
 cd nat-training-assets
-
-# 2. Set up your API key
-cp .env.example .env
-# Edit .env and add your NVIDIA API key
-
-# 3. Navigate to a module, install dependencies, and launch Jupyter
-cd module-1-fundamentals
-uv sync
-uv run jupyter lab
 ```
+
+### API Key Setup
+
+All notebooks load API keys from a `.env` file at the project root. You can either:
+
+1. **Copy and fill out the example file:**
+
+   ```bash
+   cp .env.example .env
+   # Edit .env and add your API keys
+   ```
+
+2. **Or start with `module-1-fundamentals/01_Introduction.ipynb`**, which includes an interactive API Key Setup section that creates the `.env` file for you.
 
 ## Training Modules
 
@@ -77,7 +81,7 @@ Build advanced agentic pipelines with RAG and multi-framework orchestration.
 
 ## Technical Notes
 
-- Each module has its own `pyproject.toml` and can be set up independently with `uv sync`
+- Each module has its own `pyproject.toml` — run `uv sync` to install dependencies and register the Jupyter kernel. After running `uv sync`, select the registered kernel in JupyterLab (refresh the page if already open) or VS Code (run **Developer: Reload Window** if the kernel doesn't appear)
 - The deep-dive under Module 2 has a separate `pyproject.toml` with additional dependencies for the phishing analyzer
 - All notebooks use `python-dotenv` to load API keys from the root `.env` file
 - No GPU is required — all LLM inference goes through NVIDIA NIM endpoints on build.nvidia.com

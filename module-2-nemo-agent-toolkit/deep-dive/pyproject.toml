@@ -2,9 +2,10 @@
 name = "nat_email_phishing_analyzer"
 dynamic = ["version"]
 dependencies = [
-  "nvidia-nat[all]>=1.4.1",
-  "langchain<1.0.0",
-  "jupyterlab"
+    "nvidia-nat[all]>=1.4,<2",
+    "langchain>=1.2,<2",
+    "jupyterlab>=4.0",
+    "arize-phoenix>=13.8,<14",
 ]
 requires-python = ">=3.12"
 description = "Email Phishing Analyzer - NeMo Agent Toolkit Deep Dive"

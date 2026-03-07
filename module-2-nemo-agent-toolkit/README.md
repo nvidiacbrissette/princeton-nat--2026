@@ -7,14 +7,6 @@ Learn to build, evaluate, observe, and optimize agentic workflows using the NVID
 - Complete Module 1 (Fundamentals)
 - NVIDIA API Key set in the root `.env` file
 
-## Setup
-
-```bash
-cd module-2-nemo-agent-toolkit
-uv sync
-uv run jupyter lab
-```
-
 ## Notebooks
 
 | Notebook | Description |

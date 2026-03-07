@@ -7,15 +7,6 @@ This deep-dive series extends the concepts introduced in [03_Evaluation_Observab
 - Complete Module 2's notebooks first, especially `03_Evaluation_Observability_And_Optimization.ipynb`
 - NVIDIA API Key set in the root `.env` file
 
-## Setup
-
-```bash
-cd module-2-nemo-agent-toolkit/deep-dive
-uv sync
-uv pip install -e .
-uv run jupyter lab
-```
-
 ## Notebooks
 
 | Notebook | Description |
